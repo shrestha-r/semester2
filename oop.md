@@ -598,3 +598,200 @@ for (String fileName : folder.list()) {
 ---
 
 Would you like examples using `Files.readAllLines()`, `BufferedWriter`, or working with binary files?
+
+
+# 🧮 Arrays in Java
+
+An **array** is a data structure that stores **multiple values of the same type** in a single variable, instead of declaring separate variables for each value.
+
+---
+
+## 🔹 Declaration and Initialization
+
+### ✅ Syntax:
+
+```java
+// Declaration only
+int[] arr;
+
+// Declaration + Allocation
+arr = new int[5];
+
+// Declaration + Initialization
+int[] arr = {1, 2, 3, 4, 5};
+```
+
+---
+
+## 🔸 Accessing Elements
+
+- Arrays are **zero-indexed**
+```java
+int[] arr = {10, 20, 30};
+System.out.println(arr[0]); // 10
+System.out.println(arr[2]); // 30
+```
+
+---
+
+## 🔸 Modifying Elements
+
+```java
+arr[1] = 99;
+System.out.println(arr[1]); // 99
+```
+
+---
+
+## 🔸 Array Length
+
+```java
+int len = arr.length;
+System.out.println("Length: " + len);
+```
+
+---
+
+## 🔁 Looping through Arrays
+
+### For Loop
+```java
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+```
+
+### For-Each Loop
+```java
+for (int value : arr) {
+    System.out.println(value);
+}
+```
+
+---
+
+## 🧪 Multi-dimensional Arrays
+
+### 2D Array Declaration and Initialization:
+```java
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+System.out.println(matrix[0][1]); // 2
+```
+
+### 2D Array Iteration:
+```java
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + " ");
+    }
+    System.out.println();
+}
+```
+
+---
+
+## ⚙️ Common Array Operations
+
+- **Sorting:**
+```java
+import java.util.Arrays;
+
+int[] numbers = {5, 2, 8, 1};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // [1, 2, 5, 8]
+```
+
+- **Copying:**
+```java
+int[] copy = Arrays.copyOf(numbers, numbers.length);
+```
+
+- **Searching:**
+```java
+int index = Arrays.binarySearch(numbers, 5); // array must be sorted
+```
+
+---
+
+## 🚫 Array Limitations
+
+- Fixed size (cannot grow or shrink).
+- Only stores **same data type**.
+
+For dynamic arrays, use **ArrayList** (part of Java Collections Framework).
+
+---
+
+## ✅ Best Practices
+
+- Always check `array.length` to avoid `ArrayIndexOutOfBoundsException`.
+- Use `Arrays.toString(array)` for easy printing.
+- Use enhanced for-loops when modification is not required.
+
+---
+
+## 🧠 Example: Full Array Code
+
+```java
+import java.util.Arrays;
+
+public class ArrayExample {
+    public static void main(String[] args) {
+        int[] nums = {10, 20, 30, 40};
+
+        System.out.println("Original: " + Arrays.toString(nums));
+
+        nums[2] = 99;
+        System.out.println("Modified: " + Arrays.toString(nums));
+
+        Arrays.sort(nums);
+        System.out.println("Sorted: " + Arrays.toString(nums));
+    }
+}
+```
+
+
+# 📜 Strings in Java
+
+A **String** in Java is a sequence of characters enclosed in double quotes. It is a **non-primitive data type** and part of the **`java.lang` package**.
+
+---
+
+## 🔹 Creating Strings
+
+### Using String Literals:
+```java
+String name = "Rahul";
+```
+
+### Using the `new` Keyword:
+```java
+String name = new String("Rahul");
+```
+
+> 🔸 Literal strings are stored in the **String pool**, while `new` creates a new object in the heap.
+
+---
+
+## 🧪 Common String Methods
+
+| Method                | Description                           | Example                                      |
+|-----------------------|---------------------------------------|----------------------------------------------|
+| `length()`            | Returns the length of the string      | `str.length()`                               |
+| `charAt(index)`       | Gets character at given index         | `str.charAt(2)` → `'h'`                      |
+| `substring(start)`    | Returns substring from start          | `str.substring(3)`                           |
+| `substring(start,end)`| Substring from start to end-1         | `str.substring(1,4)`                         |
+| `toLowerCase()`       | Converts to lowercase                 | `str.toLowerCase()`                          |
+| `toUpperCase()`       | Converts to uppercase                 | `str.toUpperCase()`                          |
+| `trim()`              | Removes leading/trailing spaces       | `"  text  ".trim()`                          |
+| `contains(str)`       | Checks if substring exists            | `str.contains("abc")`                        |
+| `replace(a, b)`       | Replaces all occurrences              | `str.replace('a', 'b')`                      |
+| `equals(str)`         | Checks value equality                 | `str.equals("text")`                         |
+| `equalsIgnoreCase()`  | Value equality ignoring case          | `str.equalsIgnoreCase("TEXT")`               |
+| `compareTo()`         | Lexicographical comparison            | `str1.compareTo(str2)`                       |
+| `split(delimiter)`    | Splits string into array              | `str.split(" ")`                             |
+| `indexOf(char)`       | First index of character              | `str.indexOf('l')`                           |
+| `last
